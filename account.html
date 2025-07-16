@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopKart - My Account</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo"><h1>ShopKart</h1></div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+    <div class="nav-items">
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="account.html">Account</a>
+      <a href="wishlist.html">Wishlist</a>
+
+    </div>
+  </nav>
+
+  <!-- Account Section -->
+  <section class="account">
+    <h2>My Account</h2>
+    <div class="account-container">
+      <!-- Profile Info -->
+      <div class="account-section">
+        <h3>Profile Info</h3>
+        <p>Name: John Doe</p>
+        <p>Email: john@example.com</p>
+        <button>Edit Profile</button>
+      </div>
+
+      <!-- Order History -->
+      <div class="account-section">
+        <h3>Order History</h3>
+        <ul>
+          <li>Order #12345 – Delivered – ₹5,499</li>
+        </ul>
+      </div>
+
+      <!-- Wishlist -->
+      <div class="account-section">
+        <h3>Wishlist</h3>
+        <ul id="wishlist-container">
+          <!-- Wishlist items will be injected here -->
+        </ul>
+      </div>
+
+      <!-- Addresses -->
+      <div class="account-section">
+        <h3>Addresses</h3>
+        <p>123 Park Street, Kolkata</p>
+        <button>Manage</button>
+      </div>
+
+      <!-- Payment Methods -->
+      <div class="account-section">
+        <h3>Payment Methods</h3>
+        <p>Visa ending in 1234</p>
+        <button>Manage</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wishlist Script -->
+  <script>
+    const wishlistContainer = document.getElementById('wishlist-container');
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+    function renderWishlist() {
+      wishlistContainer.innerHTML = '';
+      if (wishlist.length === 0) {
+        wishlistContainer.innerHTML = '<li>No items in wishlist</li>';
+      } else {
+        wishlist.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            ${item} 
+            <button onclick="removeFromWishlist('${item}')">Remove</button>
+          `;
+          wishlistContainer.appendChild(li);
+        });
+      }
+    }
+
+    function removeFromWishlist(item) {
+      wishlist = wishlist.filter(product => product !== item);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      renderWishlist(); // re-render without reload
+    }
+
+    renderWishlist();
+  </script>
+
+  <!-- Optional: Autocomplete Script -->
+  <script>
+    const productList = ["Wireless Headphones", "Smart Watch", "Smartphone X", "Bluetooth Speaker", "Noise Cancelling Headphones"];
+    function createAutocomplete() {
+      const input = document.querySelector('.search-bar input');
+      const dropdown = document.createElement('ul');
+      dropdown.classList.add('autocomplete-dropdown');
+      input.parentNode.appendChild(dropdown);
+      input.addEventListener('input', function () {
+        const keyword = this.value.toLowerCase();
+        dropdown.innerHTML = '';
+        if (!keyword) return;
+        const matches = productList.filter(product => product.toLowerCase().includes(keyword));
+        matches.forEach(match => {
+          const li = document.createElement('li');
+          li.textContent = match;
+          li.onclick = () => window.location.href = 'search.html?query=' + encodeURIComponent(match);
+          dropdown.appendChild(li);
+        });
+      });
+      input.addEventListener('blur', () => setTimeout(() => dropdown.innerHTML = '', 200));
+    }
+    document.addEventListener('DOMContentLoaded', createAutocomplete);
+  </script>
+</body>
+</html>

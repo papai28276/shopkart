@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopKart - Cart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="logo"><h1>ShopKart</h1></div>
+    <div class="search-bar"><input type="text"><button>Search</button></div>
+    <div class="nav-items">
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="account.html">Account</a>
+      <a href="wishlist.html">Wishlist</a>
+
+    </div>
+  </nav>
+
+  <section class="cart">
+    <h2>Your Cart</h2>
+    <div class="cart-item">
+      <img src="https://via.placeholder.com/100">
+      <div class="item-info">
+        <h4>Wireless Headphones</h4>
+        <p>$59.99</p>
+        <label>Qty:</label><input type="number" value="1">
+        <button>Remove</button>
+      </div>
+    </div>
+    <div class="price-summary">
+      <p>Subtotal: $59.99</p>
+      <p>Tax: $3.00</p>
+      <strong>Total: $62.99</strong>
+      <a href="checkout.html"><button>Checkout</button></a>
+    </div>
+  </section>
+  <script>
+  const productList = [
+    "Wireless Headphones",
+    "Smart Watch",
+    "Smartphone X",
+    "Bluetooth Speaker",
+    "Noise Cancelling Headphones"
+  ];
+
+  function createAutocomplete() {
+    const input = document.querySelector('.search-bar input');
+    const dropdown = document.createElement('ul');
+    dropdown.classList.add('autocomplete-dropdown');
+    input.parentNode.appendChild(dropdown);
+
+    input.addEventListener('input', function () {
+      const keyword = this.value.toLowerCase();
+      dropdown.innerHTML = '';
+      if (!keyword) return;
+      const matches = productList.filter(product => product.toLowerCase().includes(keyword));
+      matches.forEach(match => {
+        const li = document.createElement('li');
+        li.textContent = match;
+        li.onclick = () => {
+          window.location.href = 'search.html?query=' + encodeURIComponent(match);
+        };
+        dropdown.appendChild(li);
+      });
+    });
+
+    input.addEventListener('blur', () => {
+      setTimeout(() => dropdown.innerHTML = '', 200); // prevent flicker
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', createAutocomplete);
+</script>
+
+</body>
+</html>

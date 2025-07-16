@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ShopKart - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <h1>ShopKart</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." />
+      <button>Search</button>
+    </div>
+    <div class="nav-items">
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="account.html">Account</a>
+      <a href="wishlist.html">Wishlist</a>
+    </div>
+  </nav>
+
+  <!-- Language & Currency Switcher -->
+  <div class="switcher">
+    <label>Language:</label>
+    <select><option>English</option><option>Hindi</option></select>
+    <label>Currency:</label>
+    <select><option>INR ₹</option><option>USD $</option></select>
+  </div>
+
+  <!-- Hero Slider -->
+  <section class="hero-slider">
+    <div class="slide active" style="background-image: url('https://via.placeholder.com/1500x500?text=Welcome+to+ShopKart');">
+      <div class="hero-text">
+        <h1>Welcome to ShopKart</h1>
+        <p>Best Deals on Fashion & Electronics</p>
+        <a href="products.html" class="hero-btn">Shop Now</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('https://via.placeholder.com/1500x500?text=New+Arrivals+Live');">
+      <div class="hero-text">
+        <h1>New Arrivals</h1>
+        <p>Trendy Products at Unbeatable Prices</p>
+        <a href="products.html" class="hero-btn">Explore</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('https://via.placeholder.com/1500x500?text=Limited+Time+Offers');">
+      <div class="hero-text">
+        <h1>Limited Time Offers</h1>
+        <p>Grab the Best Discounts Before They're Gone</p>
+        <a href="products.html" class="hero-btn">Grab Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner -->
+  <section class="banner">
+    <h2>Big Sale is Live!</h2>
+    <p>Up to 70% off on Electronics, Fashion & More</p>
+    <button onclick="location.href='products.html'">Shop Now</button>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="product-list">
+      <div class="product">
+        <img src="https://via.placeholder.com/150" alt="Wireless Headphones" />
+        <h3><a href="product-detail.html">Wireless Headphones</a></h3>
+        <p>$59.99</p>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/150" alt="Smart Watch" />
+        <h3><a href="product-detail.html">Smart Watch</a></h3>
+        <p>$89.99</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Categories -->
+  <section>
+    <h2 class="section-title">Trending Now</h2>
+    <div class="feature-grid">
+      <div class="feature-box">
+        <h3>Bestsellers</h3>
+        <p>Our most loved products by customers like you!</p>
+      </div>
+      <div class="feature-box">
+        <h3>New Arrivals</h3>
+        <p>Fresh and fashionable picks just added to our store.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Trending Electronics</h3>
+        <p>Smart gadgets and accessories you’ll love.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Personalized Recommendations -->
+  <section>
+    <h2 class="section-title">You May Also Like</h2>
+    <div class="feature-grid">
+      <div class="feature-box"><h3>Wireless Earbuds</h3><p>Popular among tech lovers.</p></div>
+      <div class="feature-box"><h3>Smart Watches</h3><p>Monitor your health in style.</p></div>
+      <div class="feature-box"><h3>Casual T-Shirts</h3><p>Comfort meets fashion.</p></div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <section>
+    <h2 class="section-title">Why Shop With Us</h2>
+    <div class="feature-grid">
+      <div class="feature-box"><h3>Free Shipping</h3><p>On all orders over ₹499</p></div>
+      <div class="feature-box"><h3>Secure Payments</h3><p>100% safe and encrypted checkout</p></div>
+      <div class="feature-box"><h3>Easy Returns</h3><p>No questions asked 7-day return policy</p></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
+    <h2 class="section-title">What Our Customers Say</h2>
+    <div class="feature-grid">
+      <div class="feature-box"><p>⭐⭐⭐⭐⭐</p><p>“Absolutely loved the quality and speed!” – Priya S.</p></div>
+      <div class="feature-box"><p>⭐⭐⭐⭐</p><p>“Impressed with the secure delivery and packaging.” – Arjun P.</p></div>
+      <div class="feature-box"><p>⭐⭐⭐⭐⭐</p><p>“ShopKart is now my go-to for everything!” – Sneha R.</p></div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="blog-section">
+    <h2>Style & Guides</h2>
+    <div class="blog-post">
+      <h4>Top 10 Gifts for Him</h4>
+      <p>Curated gadgets & outfits for any occasion.</p>
+    </div>
+    <div class="blog-post">
+      <h4>How to Pick the Perfect Sneakers</h4>
+      <p>Our style experts reveal their tips.</p>
+    </div>
+  </section>
+
+  <!-- Social Media -->
+  <div class="social-links">
+    <a href="#">📸</a>
+    <a href="#">🐦</a>
+    <a href="#">📘</a>
+  </div>
+
+  <!-- Recently Viewed -->
+  <section class="recently-viewed">
+    <h3>Recently Viewed</h3>
+    <p>You recently viewed: Smart Watch Series 7</p>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <h2>Get 10% Off Your First Order</h2>
+    <p>Sign up for exclusive deals & updates</p>
+    <input type="email" placeholder="Enter your email" />
+    <button>Subscribe</button>
+  </section>
+
+  <!-- App Promo -->
+  <section>
+    <h2 class="section-title">Shop On the Go</h2>
+    <div class="feature-grid">
+      <div class="feature-box">
+        <h3>Get Our App</h3>
+        <p>Experience the fastest and easiest way to shop</p>
+        <p><a href="#">Download for Android</a> | <a href="#">iOS</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store Locator -->
+  <section>
+    <h2 class="section-title">Visit Our Stores</h2>
+    <div class="feature-grid">
+      <div class="feature-box">
+        <h3>Find a Store Near You</h3>
+        <p><a href="#">Store Locator</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Mobile Buttons -->
+  <div class="sticky-buttons">
+    <button>Search</button>
+    <button>Cart</button>
+  </div>
+
+  <!-- Live Chat -->
+  <button class="live-chat-btn">💬 Chat</button>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ShopKart | <a href="#">Contact</a> | <a href="#">Privacy Policy</a> | <a href="#">FAQs</a></p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const searchInput = document.querySelector('.search-bar input');
+    const suggestions = ['Shoes', 'Shirts', 'Smart Watches', 'Sneakers', 'Sunglasses'];
+
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.toLowerCase();
+      document.querySelectorAll('.autocomplete-item').forEach(el => el.remove());
+
+      const matches = suggestions.filter(item => item.toLowerCase().includes(term));
+      matches.forEach(match => {
+        const div = document.createElement('div');
+        div.textContent = match;
+        div.className = 'autocomplete-item';
+        div.style.background = '#222';
+        div.style.color = '#fff';
+        div.style.padding = '5px 10px';
+        div.style.cursor = 'pointer';
+        div.onclick = () => {
+          searchInput.value = match;
+          document.querySelectorAll('.autocomplete-item').forEach(el => el.remove());
+        };
+        searchInput.parentElement.appendChild(div);
+      });
+    });
+
+    // Hero Slider
+    let slides = document.querySelectorAll('.slide');
+    let current = 0;
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    setInterval(nextSlide, 4000);
+
+    // Live Chat
+    document.querySelector('.live-chat-btn').addEventListener('click', () => {
+      alert("👋 Hi there! How can we help you today?");
+    });
+
+    // Recently Viewed (example)
+    const viewed = localStorage.getItem('recentlyViewed');
+    if (viewed) {
+      document.querySelector('.recently-viewed p').textContent = `You recently viewed: ${viewed}`;
+    }
+  </script>
+</body>
+</html>

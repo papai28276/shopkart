@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopKart - Checkout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="logo"><h1>ShopKart</h1></div>
+    <div class="search-bar"><input type="text"><button>Search</button></div>
+    <div class="nav-items">
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="account.html">Account</a>
+      <a href="wishlist.html">Wishlist</a>
+
+    </div>
+  </nav>
+
+  <section class="checkout">
+    <h2>Checkout</h2>
+    <div class="checkout-container">
+      <div class="checkout-left">
+        <div class="checkout-block">
+          <h3>Shipping Address</h3>
+          <input type="text" placeholder="Full Name"><br>
+          <input type="text" placeholder="Address Line 1"><br>
+          <input type="text" placeholder="City"><br>
+          <input type="text" placeholder="Postal Code"><br>
+        </div>
+        <div class="checkout-block">
+          <h3>Delivery Options</h3>
+          <label><input type="radio" name="delivery" checked> Standard - Free</label><br>
+          <label><input type="radio" name="delivery"> Express - $9.99</label>
+        </div>
+        <div class="checkout-block">
+          <h3>Payment Method</h3>
+          <label><input type="radio" name="payment" checked> Credit/Debit</label><br>
+          <label><input type="radio" name="payment"> Cash on Delivery</label>
+        </div>
+        <div class="checkout-block">
+          <h3>Coupon</h3>
+          <input type="text" placeholder="Enter coupon code">
+          <button>Apply</button>
+        </div>
+      </div>
+      <div class="checkout-right">
+        <h3>Order Summary</h3>
+        <p>Wireless Headphones — $59.99</p>
+        <p>Smart Watch — $89.99</p>
+        <hr>
+        <p>Subtotal: $149.98</p>
+        <p>Tax: $7.50</p>
+        <strong>Total: $157.48</strong>
+        <button>Place Order</button>
+      </div>
+    </div>
+  </section>
+  <script>
+  const productList = [
+    "Wireless Headphones",
+    "Smart Watch",
+    "Smartphone X",
+    "Bluetooth Speaker",
+    "Noise Cancelling Headphones"
+  ];
+
+  function createAutocomplete() {
+    const input = document.querySelector('.search-bar input');
+    const dropdown = document.createElement('ul');
+    dropdown.classList.add('autocomplete-dropdown');
+    input.parentNode.appendChild(dropdown);
+
+    input.addEventListener('input', function () {
+      const keyword = this.value.toLowerCase();
+      dropdown.innerHTML = '';
+      if (!keyword) return;
+      const matches = productList.filter(product => product.toLowerCase().includes(keyword));
+      matches.forEach(match => {
+        const li = document.createElement('li');
+        li.textContent = match;
+        li.onclick = () => {
+          window.location.href = 'search.html?query=' + encodeURIComponent(match);
+        };
+        dropdown.appendChild(li);
+      });
+    });
+
+    input.addEventListener('blur', () => {
+      setTimeout(() => dropdown.innerHTML = '', 200); // prevent flicker
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', createAutocomplete);
+</script>
+
+</body>
+</html>
