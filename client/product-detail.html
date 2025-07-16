@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ShopKart - Cart</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>ShopKart - Product Detail</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <nav>
@@ -19,22 +19,20 @@
     </div>
   </nav>
 
-  <section class="cart">
-    <h2>Your Cart</h2>
-    <div class="cart-item">
-      <img src="https://via.placeholder.com/100">
-      <div class="item-info">
-        <h4>Wireless Headphones</h4>
-        <p>$59.99</p>
-        <label>Qty:</label><input type="number" value="1">
-        <button>Remove</button>
+  <section class="pdp">
+    <h2>Smartphone X</h2>
+    <div class="pdp-content">
+      <img src="https://via.placeholder.com/300">
+      <div class="pdp-info">
+        <p><strong>Price:</strong> $499 <del>$599</del></p>
+        <p><strong>Description:</strong> Fast and sleek smartphone.</p>
+        <label>Color:</label><select><option>Black</option></select>
+        <label>Size:</label><select><option>128GB</option></select>
+        <button>Add to Cart</button>
+        <button onclick="addToWishlist('Smartphone X')">❤️ Add to Wishlist</button>
+        <button>Buy Now</button>
+        <h4>⭐ 4.5 (200 reviews)</h4>
       </div>
-    </div>
-    <div class="price-summary">
-      <p>Subtotal: $59.99</p>
-      <p>Tax: $3.00</p>
-      <strong>Total: $62.99</strong>
-      <a href="checkout.html"><button>Checkout</button></a>
     </div>
   </section>
   <script>
@@ -74,6 +72,25 @@
 
   document.addEventListener('DOMContentLoaded', createAutocomplete);
 </script>
+<script>
+  function addToWishlist(productName) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    if (!wishlist.includes(productName)) {
+      wishlist.push(productName);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      alert(productName + " added to wishlist!");
+    } else {
+      alert("Already in wishlist.");
+    }
+  }
+</script>
+
+<script>
+  const currentProduct = "Smart Watch Series 7"; // Replace with dynamic product name
+  localStorage.setItem('recentlyViewed', currentProduct);
+</script>
+
+
 
 </body>
 </html>
